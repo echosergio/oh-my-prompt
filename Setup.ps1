@@ -3,7 +3,7 @@ if (!$User.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     throw 'Administrator privileges are required.'
 }
 
-$modules = Get-ChildItem -Path $PsModulesPath -Recurse "*.psm1"
+$modules = Get-ChildItem -Path "$PSScriptRoot\modules" -Recurse "*.psm1"
 $i = 0
 foreach ($module in $modules) {
     $i++
