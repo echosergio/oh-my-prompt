@@ -1,3 +1,6 @@
+[CmdletBinding()]
+Param()
+
 If (-not(Get-InstalledModule Terminal-Icons -ErrorAction silentlycontinue)) {
     Install-Module Terminal-Icons -Scope CurrentUser -Confirm:$False -Force; 
     Import-Module Terminal-Icons; 

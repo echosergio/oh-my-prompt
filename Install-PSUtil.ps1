@@ -1,3 +1,6 @@
+[CmdletBinding()]
+Param()
+
 If (-not(Get-InstalledModule PSUtil -ErrorAction silentlycontinue)) {
     Install-Module PSUtil -Scope CurrentUser -Confirm:$False -Force; 
     Import-Module PSUtil; 

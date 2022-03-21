@@ -3,14 +3,25 @@ if (!$User.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     throw 'Administrator privileges are required.'
 }
 
+$modules = Get-ChildItem -Path $PsModulesPath -Recurse "*.psm1"
+$i = 0
+foreach ($module in $modules) {
+    $i++
+    Write-Progress -Activity "Importing modules" -Status "$module" -PercentComplete ($i / $modules.Count * 100) 
+    Import-Module -Force $module.FullName -DisableNameChecking;
+}
+Write-Progress -Activity "Importing modules" -Completed
+
 $InstallWinGet = (Join-Path $PSScriptRoot "Install-WinGet.ps1")
 & $InstallWinGet -ErrorAction Stop
 
-$InstallFonts = (Join-Path $PSScriptRoot "Install-Fonts.ps1")
-& $InstallFonts -Path "$PSScriptRoot\fonts" -ErrorAction Stop
+Install-Fonts -Path "$PSScriptRoot\fonts" -ErrorAction Stop
 
 $InstallWindowsTerminal = (Join-Path $PSScriptRoot "Install-WindowsTerminal.ps1")
 & $InstallWindowsTerminal -ErrorAction Stop
+
+$InstallVSCode = (Join-Path $PSScriptRoot "Install-VSCode.ps1")
+& $InstallVSCode -ErrorAction Stop
 
 $InstallOhMyPosh = (Join-Path $PSScriptRoot "Install-OhMyPosh.ps1")
 & $InstallOhMyPosh -ErrorAction Stop

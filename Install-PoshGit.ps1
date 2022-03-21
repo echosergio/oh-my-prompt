@@ -1,3 +1,6 @@
+[CmdletBinding()]
+Param()
+
 If (-not(Get-InstalledModule posh-git -ErrorAction silentlycontinue)) {
     Install-Module posh-git -Scope CurrentUser -Confirm:$False -Force; 
     Import-Module posh-git; 

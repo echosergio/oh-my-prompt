@@ -1,22 +1,7 @@
-$apps = @(
-    @{name = "Microsoft.WindowsTerminal"; source = "msstore" }
-);
+[CmdletBinding()]
+Param()
 
-Foreach ($app in $apps) {
-    $listApp = winget list --exact -q $app.name
-    if (![String]::Join("", $listApp).Contains($app.name)) {
-        Write-host "Installing:" $app.name
-        if ($null -ne $app.source) {
-            winget install --exact --silent $app.name --source $app.source
-        }
-        else {
-            winget install --exact --silent $app.name 
-        }
-    }
-    else {
-        Write-Host $app.name "already installed" 
-    }
-}
+Install-WinGetApp -App "Microsoft.WindowsTerminal" -Source "msstore" -ErrorAction Stop
 
 $fontBlock = @"
     {

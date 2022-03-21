@@ -1,3 +1,6 @@
+[CmdletBinding()]
+Param()
+
 $hasPackageManager = Get-AppPackage -name 'Microsoft.DesktopAppInstaller'
 if (!$hasPackageManager -or [version]$hasPackageManager.Version -lt [version]"1.10.0.0") {
     "Installing winget Dependencies"

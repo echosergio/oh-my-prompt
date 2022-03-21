@@ -1,3 +1,6 @@
+[CmdletBinding()]
+Param()
+
 If (-not(Get-InstalledModule ZLocation -ErrorAction silentlycontinue)) {
     Install-Module ZLocation -Scope CurrentUser -Confirm:$False -Force; 
     Import-Module ZLocation; 

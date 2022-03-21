@@ -1,3 +1,6 @@
+[CmdletBinding()]
+Param()
+
 If (-not(Get-InstalledModule PSReadLine -ErrorAction silentlycontinue)) {
     Install-Module PSReadLine -Scope CurrentUser -Confirm:$False -Force; 
     Import-Module PSReadLine; 
