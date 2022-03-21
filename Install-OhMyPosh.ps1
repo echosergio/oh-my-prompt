@@ -17,3 +17,7 @@ Foreach ($app in $apps) {
         Write-Host $app.name "already installed" 
     }
 }
+
+if (Test-Path $env:POSH_THEMES_PATH) {
+    Copy-Item "$PSScriptRoot\oh-my-posh\themes\custom.omp.json" -Destination $env:POSH_THEMES_PATH -Force
+}

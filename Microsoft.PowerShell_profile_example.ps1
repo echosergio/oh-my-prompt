@@ -3,7 +3,7 @@ if ($User.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
       return;
 }
 
-oh-my-posh prompt init pwsh --config "$env:POSH_THEMES_PATH\M365Princess.omp.json" | Invoke-Expression
+oh-my-posh prompt init pwsh --config "$env:POSH_THEMES_PATH\custom.omp.json" | Invoke-Expression
 
 Import-Module posh-git
 Import-Module PSUtil
