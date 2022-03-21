@@ -1,1 +1,1 @@
-# -oh-my-prompt
+# oh-my-prompt-setup 😎
