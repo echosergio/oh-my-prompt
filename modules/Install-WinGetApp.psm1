@@ -9,7 +9,7 @@ function Install-WinGetApp {
 
     $listApp = winget list --exact -q $App
     if (![String]::Join("", $listApp).Contains($App)) {
-        Write-host "Installing:" $App
+        Write-Host "Installing:" $App
         if ($null -ne $Source) {
             winget install --exact --silent $App --source $Source
         }
