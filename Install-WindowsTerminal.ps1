@@ -20,8 +20,8 @@ Foreach ($app in $apps) {
 
 $fontBlock = @"
     {
-        "size": 9,
-        "face": "MesloLGM NF"
+        "size": 10,
+        "face": "CaskaydiaCove NF"
     }
 "@
 

@@ -23,3 +23,9 @@ $InstallPSUtil = (Join-Path $PSScriptRoot "Install-PSUtil.ps1")
 
 $InstallZLocation = (Join-Path $PSScriptRoot "Install-ZLocation.ps1")
 & $InstallZLocation -ErrorAction Stop
+
+$InstallPSReadLine = (Join-Path $PSScriptRoot "Install-PSReadLine.ps1")
+& $InstallPSReadLine -ErrorAction Stop
+
+$InstallTerminalIcons = (Join-Path $PSScriptRoot "Install-TerminalIcons.ps1")
+& $InstallTerminalIcons -ErrorAction Stop
